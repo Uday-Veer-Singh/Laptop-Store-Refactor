@@ -4,7 +4,7 @@ namespace WebApplication2.Models
 {
     public class Laptop
     {
-        public Guid Number { get; set; }
+        public Guid LaptopNumber { get; set; }
 
         private string _model;
         
@@ -35,10 +35,8 @@ namespace WebApplication2.Models
         }
         
         public LaptopCondition Condition { get; set; }
+        public HashSet<LaptopStore> laptopStores = new HashSet<LaptopStore>();
         
-        public int BrandId { get; set; }
-        
-        public Brand Brand { get; set; }
     }
 
     public enum LaptopCondition
