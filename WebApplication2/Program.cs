@@ -19,5 +19,10 @@ builder.Services.Configure<JsonOptions>(options => {
 
 var app = builder.Build();
 
+using (IServiceScope scope = app.Services.CreateScope())
+{
+    IServiceProvider serviceProvider = scope.ServiceProvider;
+    await SeedData.Initialize(serviceProvider);
+}
 
 app.Run();
