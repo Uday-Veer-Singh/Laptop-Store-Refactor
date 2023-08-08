@@ -1,7 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using WebApplication2.Models;
 
 namespace WebApplication2.Data
+{
+    public class SeedData
+    {
+        public async static Task Initialize(IServiceProvider serviceProvider)
+        {
+            LaptopStoreContext context = new LaptopStoreContext(serviceProvider.GetRequiredService<DbContextOptions<LaptopStoreContext>>());
+            context.Database.EnsureDeleted();
+            context.Database.Migrate();
 
 {
     public class SeedData
