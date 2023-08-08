@@ -9,15 +9,6 @@ namespace WebApplication2.Data
     {
         public async static Task Initialize(IServiceProvider serviceProvider)
         {
-            LaptopStoreContext context = new LaptopStoreContext(serviceProvider.GetRequiredService<DbContextOptions<LaptopStoreContext>>());
-            context.Database.EnsureDeleted();
-            context.Database.Migrate();
-
-{
-    public class SeedData
-    {
-        public async static Task Initialize(IServiceProvider serviceProvider)
-        {
             LaptopStoreContext db = new LaptopStoreContext(serviceProvider.GetRequiredService<DbContextOptions<LaptopStoreContext>>());
            
             db.Database.EnsureDeleted();
