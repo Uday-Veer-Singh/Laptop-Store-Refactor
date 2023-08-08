@@ -6,6 +6,7 @@
         public Laptop laptop { get; set; }
         public Guid LaptopNumber { get; set; }
         public StoreLocation StoreLocation { get; set; }
+        public int Quantity { get; set; }
         public Guid StoreNumber { get; set;}
 
     }

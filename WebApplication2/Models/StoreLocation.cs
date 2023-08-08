@@ -1,14 +1,16 @@
-﻿namespace WebApplication2.Models
+﻿using Microsoft.Identity.Client;
+
+namespace WebApplication2.Models
 {
     public class StoreLocation
     {
         public Guid StoreNumber { get; set; }
         
-        private string _Name;
+        private string _StreetName;
 
-        public string Name
+        public string StreetName
         {
-            get => _Name;
+            get => _StreetName;
             set
             {
                 if(string.IsNullOrEmpty(value) || value.Length < 30)
@@ -16,25 +18,21 @@
                     throw new ArgumentOutOfRangeException(nameof(value));
 
                 }
-                _Name = value;
+                _StreetName = value;
             }
         }
 
-        private string _Address;
-
-        public string Address
-        {
-            get => _Address;
-            set
-            {
-                if(string.IsNullOrEmpty(value) || value.Length < 50 )
-                {
-                    throw new ArgumentOutOfRangeException(nameof(value));
-                }
-                _Address = value;
-            }
-        }
+        public int StreetNumber { get; set; } 
 
         public HashSet<LaptopStore> laptopStores { get; set; } = new HashSet<LaptopStore>();
+        public Province Province { get; set; }
+    }
+
+    public enum Province
+    {
+        Manitoba,
+        BritishColumbia,
+        Alberta,
+        Ontario
     }
 }

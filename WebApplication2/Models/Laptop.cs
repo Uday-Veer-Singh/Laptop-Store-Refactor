@@ -17,6 +17,7 @@ namespace WebApplication2.Models
                 {
                     throw new ArgumentOutOfRangeException(nameof(value), "Laptop model name must be at least three characters in length.");
                 }
+                _model = value;
             }
         }
 
@@ -33,7 +34,8 @@ namespace WebApplication2.Models
                 _price = value;
             }
         }
-        
+        public Brand Brand { get; set; }
+        public  Guid BrandId { get; set; }
         public LaptopCondition Condition { get; set; }
         public HashSet<LaptopStore> laptopStores = new HashSet<LaptopStore>();
         
