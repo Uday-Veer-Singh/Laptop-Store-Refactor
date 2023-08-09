@@ -46,6 +46,7 @@ namespace WebApplication2.Models
     {
         New,
         Refurbished,
-        Rental
+        Rental,
+        None
     }
 }
